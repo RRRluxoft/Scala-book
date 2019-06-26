@@ -1,4 +1,4 @@
-import scala.collection.mutable
+import scala.collection.mutable.Map
 
 class ChecksumAccumulator {
   private var sum = 0
@@ -7,7 +7,7 @@ class ChecksumAccumulator {
 }
 
 object ChecksumAccumulator {
-  private val cache = mutable.Map.empty[String, Int]
+  private val cache = Map.empty[String, Int]
 
   def calculate(s: String): Int = {
     if (cache.contains(s)) cache(s)
