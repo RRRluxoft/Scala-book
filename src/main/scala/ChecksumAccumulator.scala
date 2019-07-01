@@ -1,3 +1,4 @@
+import scala.annotation.tailrec
 import scala.collection.mutable.Map
 
 class ChecksumAccumulator {
@@ -21,4 +22,13 @@ object ChecksumAccumulator {
       cs
     }
   }
+
+  @tailrec
+  def gcb(a: Int, b: Int): Int = {
+    if (b == 0) return a
+    val bigger = if (a < b) b else a
+    val smaller = if (a < b) a else b
+    gcb(smaller, bigger % smaller)
+  }
+
 }
